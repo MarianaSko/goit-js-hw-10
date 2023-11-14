@@ -16,7 +16,7 @@ isHiddenAdd(catInfoEl);
 isHiddenAdd(breedSelectEl);
 
 fetchBreeds().then((res) => {
-    console.log(res);
+
     const breedsList = res.map(breed => createMarkupForSelect(breed));
     breedSelectEl.innerHTML = breedsList.join('');
 
@@ -47,8 +47,6 @@ function onBreedSelectChange(event) {
         catInfoEl.insertAdjacentHTML('afterbegin', createMarkupForCatImg(res[0]));
 
         isHiddenRemove(catInfoEl);
-
-        console.dir(res);
 
     }).catch((err) => Notify.failure('Oops! Something went wrong! Try reloading the page!'));
 
